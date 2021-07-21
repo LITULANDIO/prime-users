@@ -1,0 +1,35 @@
+<div class="w-full h-auto" id="table__users">
+    <div class="flex justify-between px-2 pt-1">
+        <h4 class="text-sm">Users Profile</h4>
+    </div>
+    <div class="content-table pb-2 pl-8 pr-8 mt-2">
+        <table class="table">
+            <thead class="header-fix">
+                <tr>
+                    <th v-for="(header, index) in headers" :key="index" class="pl-6 pr-6 pt-3 pb-3 text-left text-xs">
+                        {{ header }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(row, indexRow) in rows" :key="indexRow">
+                    <td :key="indexRow" class="pl-6 pr-6 pt-3 pb-3 text-xs">
+                        {{ row.gender }}
+                    </td>
+                    <td :key="indexRow" class="pl-6 pr-6 pt-3 pb-3 text-xs">
+                        {{ row.name }}
+                    </td>
+                    <td :key="indexRow" class="pl-6 pr-6 pt-3 pb-3 text-xs">
+                        {{ row.email }}
+                    </td>
+                    <td :key="indexRow" class="pl-6 pr-6 pt-3 pb-3 text-xs">
+                        {{ row.nat }}
+                    </td>
+                    <td :key="indexRow" class="pl-6 pr-6 pt-3 pb-3 text-xs">
+                        {{ row.date_registered }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
