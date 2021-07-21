@@ -4,7 +4,7 @@
 #table__users{
     .content-table {
       width: 100%;
-      height: 13rem !important;
+      height: 90vh !important;
       overflow-y: scroll;
       overflow-x: auto;
       border: 1px solid $green;
@@ -30,7 +30,7 @@
     }
     
     .content-table::-webkit-scrollbar-track {
-      background: $green;
+      background: $grey;
       border-radius: 10px;
       margin-bottom: 15px;
       margin-top: 15px;
@@ -38,6 +38,7 @@
     
     .content-table::-webkit-scrollbar {
       width: 10px;
+      height: 10px;
       padding: 10px;
     }
     
@@ -45,5 +46,18 @@
       border-radius: 10px;
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
       background-color: $green;
+    }
+    .look{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        .img-eye{
+            width: 1em;
+            padding:0;
+        }
+        &:hover{
+            background-color: $green;
+        }
     }
   }

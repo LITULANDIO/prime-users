@@ -14,10 +14,14 @@ export default {
     },
 
     },
-    setup(){
+    setup(props, {emit}){
+
+        const onGoDetail = (event) =>{
+            emit('onGoDetail', {id: event.target.id})
+        }
 
         return{
-
+            onGoDetail
         }
     }
 
