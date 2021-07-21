@@ -1,6 +1,8 @@
 <template src="./Home.html"></template>
 
 <script>
+import { getDataUsers } from "@/computation/users.js";
+
 import Table from "@/components/Table/Table.vue";
 import { ref, onBeforeMount } from '@vue/runtime-core';
 
@@ -16,11 +18,16 @@ export default {
 
         onBeforeMount(() =>{
             getHeaders();
+            getRows();
 
         });
 
         const getHeaders = () =>{
-            headersRefList.value = ['Género', 'Nombre', 'Nacionalidad', 'Fecha de Nacimiento', 'Fecha de registro'];
+            headersRefList.value = ['Género', 'Nombre', 'Email', 'Nacionalidad', 'Fecha de Nacimiento', 'Fecha de registro'];
+        }
+
+        const getRows = async () =>{
+            rowsRefList.value = await getDataUsers();
         }
 
 
