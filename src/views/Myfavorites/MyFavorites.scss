@@ -1,0 +1,15 @@
+@import "../../assets/colors.scss";
+
+.btn-csv{
+    background-color: $green;
+    color: $white;
+    padding: 15px;
+    border-radius: 15px;
+    border: 1px solid $white;
+    cursor: pointer;
+    &:hover{
+        border: 1px solid $green;
+        background-color: $white;
+        color: $green;
+    }
+}

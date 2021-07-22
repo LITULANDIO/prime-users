@@ -1,6 +1,8 @@
 <div>
   <GoBack />
     <section>
+        <div @click="onExportCsv" class="btn-csv mt-3 text-center">Exportar csv</div>
+
         <Table :headers="headersRefList"
                :rows="rowsRefList" 
                title="My favorites"

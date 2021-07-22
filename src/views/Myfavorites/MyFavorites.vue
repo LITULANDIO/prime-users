@@ -3,7 +3,7 @@
 <script>
 import Table from "@/components/Table/Table.vue";
 import GoBack from "@/components/go-back/GoBack.vue";
-
+import { DataProvider } from "@/data-providers/index.js";
 import { ref, onBeforeMount, onBeforeUpdate } from '@vue/runtime-core';
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -19,7 +19,6 @@ export default {
         const router = useRouter();
         const headersRefList = ref(null);
         const rowsRefList = ref(null);
-        const dataDetail = ref(null);
 
          onBeforeMount(() =>{
             getHeaders();
@@ -46,10 +45,23 @@ export default {
             router.push(`/detail-user/${id.id}`)
         }
 
+        const onExportCsv = async () =>{
+            let request = null;
+            try{
+                request = await DataProvider("USERS_PROFILE", "GET_CSV")
+
+            }catch(error){
+                console.error(`Error not export csv ${error}`)
+            }
+            console.log('request', request)
+            return request;
+        }
+
         return {
             headersRefList,
             rowsRefList,
-            onGoDetail      
+            onGoDetail,
+            onExportCsv   
 
         }
     }
