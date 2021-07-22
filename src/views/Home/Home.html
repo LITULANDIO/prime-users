@@ -1,2 +1,11 @@
-<Table :headers="headersRefList"
-       :rows="rowsRefList" />
+<div>
+    <section class="flex justify-center">
+        <div @click="onShowUsers" class="btn-users">Query Users</div>
+    </section>
+
+    <section>
+        <Table :headers="headersRefList"
+               :rows="rowsRefList" 
+               @onGoDetail="onGoDetail"/>
+    </section>
+</div>
