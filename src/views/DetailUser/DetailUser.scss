@@ -1,0 +1,16 @@
+@import "../../assets/colors.scss";
+
+#card{
+    width: auto;
+    height: auto;
+    box-shadow: 0px 0px 4px 2px $green;
+    padding: 15px 15px 15px 15px;
+    img{
+        border-radius: 50%;
+    }
+    .size-img{
+        width: 25%;
+        cursor: pointer;
+    }
+
+}

@@ -1,0 +1,30 @@
+<GoBack v-if="dataRefUserDetailObj" />
+
+<article class="flex">
+    <section id="card" class="container mx-auto" v-if="dataRefUserDetailObj">
+        <div class="flex justify-items-start">
+            <img :src="dataRefUserDetailObj.personal_data.img" />
+            <div class="ml-5">
+                <h1><span class="font-bold">Name:</span> {{dataRefUserDetailObj.personal_data.name}}</h1>
+                <h1><span class="font-bold">Email: </span> {{dataRefUserDetailObj.personal_data.email}}</h1>
+                <h1><span class="font-bold">City:</span> {{dataRefUserDetailObj.location_data.city}}</h1>
+                <h1><span class="font-bold">Street:</span> {{dataRefUserDetailObj.location_data.city}}</h1>
+                <h1><span class="font-bold">Telephone:</span> {{dataRefUserDetailObj.location_data.num}}</h1>
+
+            </div>
+            <div class="flex justify-end">
+                <img v-if="dontLike" src="../../assets/img/me-gusta.svg" class="size-img" @click="onLikeFavorite"/>
+                <img v-if="showLike" src="../../assets/img/corazon.svg" class="size-img" @click="onDontLikeFavorite"/>
+            </div>
+        </div>
+        <div class="mt-3 flex">
+            <GMapMap :center="centerRefObj" :zoom="7" map-type-id="terrain" style="width: 500px; height: 300px">
+                <GMapCluster>
+                    <GMapMarker :key="index" v-for="(m, index) in makerRefObj" :position="m.position" :clickable="true"
+                        :draggable="true" @click="center=m.position" />
+                </GMapCluster>
+            </GMapMap>
+        </div>
+    </section>
+</article>
+<div v-if="!dataRefUserDetailObj">Loading...</div>
