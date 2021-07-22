@@ -1,11 +1,14 @@
 <div>
-    <section class="flex justify-center">
+    <section class="flex justify-around">
         <div @click="onShowUsers" class="btn-users">Query Users</div>
+        <div @click="onGoMyFavorites" class="btn-favorites">My favorites</div>
+        <div @click="onGoMyFavorites" class="btn-favorites">Filters</div>
     </section>
 
     <section>
         <Table :headers="headersRefList"
                :rows="rowsRefList" 
+               title="Profile Users"
                @onGoDetail="onGoDetail"/>
     </section>
 </div>

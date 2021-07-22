@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home/Home.vue';
 import DetailUser from '../views/DetailUser/DetailUser.vue';
+import MyFavorites from '../views/Myfavorites/MyFavorites.vue';
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/detail-user/:id',
     name: 'DetailUser',
     component: DetailUser
+  },
+  {
+    path: '/my-favorites',
+    name: 'MyFavorites',
+    component: MyFavorites
   },
  
 ]

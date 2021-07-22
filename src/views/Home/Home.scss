@@ -1,10 +1,11 @@
 @import "../../assets/colors.scss";
 
-.btn-users{
+.btn-users, .btn-favorites{
     background-color: $green;
     color: $white;
     padding: 15px;
     border-radius: 15px;
+    border: 1px solid $white;
     cursor: pointer;
     &:hover{
         border: 1px solid $green;

@@ -32,7 +32,6 @@ export default {
         const getRows = async () =>{
             store.commit('SET_USERS', await getDataUsers())
             rowsRefList.value = store.getters["GET_USERS"]
-            console.log(store)
         }
 
         const getExistRows = () =>{
@@ -47,6 +46,10 @@ export default {
             router.push(`/detail-user/${id.id}`)
         }
 
+        const onGoMyFavorites = () =>{
+            router.push("/my-favorites")
+        }
+
         const onShowUsers = () =>{
             getRows();
         }
@@ -57,7 +60,8 @@ export default {
             rowsRefList,
             dataDetail,
             onGoDetail,
-            onShowUsers
+            onShowUsers,
+            onGoMyFavorites
         }
     }
 

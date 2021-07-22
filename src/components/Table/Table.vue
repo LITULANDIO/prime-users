@@ -12,6 +12,9 @@ export default {
             type: Array,
             required: true
     },
+        title:{
+            type: String
+        }
 
     },
     setup(props, {emit}){

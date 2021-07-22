@@ -22,7 +22,7 @@ export const getDataUsers = async() =>{
         usersList.results.forEach(user => {
             newUsersObj = {
                 gender: user.gender,
-                name: user.name,
+                name: user.name.first,
                 email: user.email,
                 nat: user.nat,
                 date_birth: new Date(user.dob.date).toLocaleString(),
@@ -48,7 +48,13 @@ export const getDataUserDetail = async({id}) =>{
                 newUsersObj = {
                     personal_data: { img: user.picture.large, name: user.name.first, email: user.email, phone: user.phone },
                     coordinates: { lat: parseInt(user.location.coordinates.latitude), long: parseInt(user.location.coordinates.longitude) },
-                    location_data: { city: user.location.city, street: user.location.street.name, num: user.location.street.number }
+                    location_data: { city: user.location.city, street: user.location.street.name, num: user.location.street.number },
+                    gender: user.gender,
+                    name: user.name.first,
+                    email: user.email,
+                    nat: user.nat,
+                    date_birth: new Date(user.dob.date).toLocaleString(),
+                    date_register: new Date(user.registered.date).toLocaleString()
                 }
             }
         });
