@@ -1,9 +1,10 @@
 <template src="./Home.html"></template>
 
 <script>
-import { getDataUsers } from "@/computation/users.js";
+import { getDataUsers, fetchGenderMale, fetchGenderFemale } from "@/computation/users.js";
 
 import Table from "@/components/Table/Table.vue";
+import RadioButton from "@/components/radio-button/RadioButton.vue";
 import { ref, onBeforeMount } from '@vue/runtime-core';
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -12,6 +13,7 @@ export default {
     name: 'Home',
     components:{
         Table,
+        RadioButton
     },
     setup(){
         const store = useStore();
@@ -19,6 +21,8 @@ export default {
         const headersRefList = ref(null);
         const rowsRefList = ref(null);
         const dataDetail = ref(null);
+        const genderRefStr = ref("");
+        const showRefFilters = ref(false);
 
         onBeforeMount(() =>{
             getHeaders();
@@ -54,14 +58,41 @@ export default {
             getRows();
         }
 
+        const onGoFilters = () =>{
+            rowsRefList.value = fetchGenderMale()
+        }
+
+        const onSelectedMale = (value) =>{
+            genderRefStr.value = value;
+            rowsRefList.value = fetchGenderMale()
+        }
+
+        const onSelectedFemale = (value) =>{
+            genderRefStr.value = value;
+           rowsRefList.value = fetchGenderFemale();
+        }
+
+        const onShowFilters = () =>{
+            console.log('eiiiiiii')
+            showRefFilters.value = !showRefFilters.value
+        }
+
+
+
 
         return{
             headersRefList,
             rowsRefList,
             dataDetail,
+            genderRefStr,
+            showRefFilters,
             onGoDetail,
             onShowUsers,
-            onGoMyFavorites
+            onGoMyFavorites,
+            onGoFilters,
+            onSelectedMale,
+            onSelectedFemale,
+            onShowFilters
         }
     }
 

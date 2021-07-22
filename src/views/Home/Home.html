@@ -2,13 +2,14 @@
     <section class="flex justify-around">
         <div @click="onShowUsers" class="btn-users">Query Users</div>
         <div @click="onGoMyFavorites" class="btn-favorites">My favorites</div>
-        <div @click="onGoMyFavorites" class="btn-favorites">Filters</div>
+        <div @click="onShowFilters" class="btn-filters">Area Filters</div>
+        <section :class="showRefFilters? 'visible' : 'hidden'">
+            <RadioButton name="options" label="Male" v-model:checked="genderRefStr" @selectedRadio="onSelectedMale" />
+            <RadioButton name="options" label="Female" v-model:checked="genderRefStr" @selectedRadio="onSelectedFemale" />
+        </section>
     </section>
 
     <section>
-        <Table :headers="headersRefList"
-               :rows="rowsRefList" 
-               title="Profile Users"
-               @onGoDetail="onGoDetail"/>
+        <Table :headers="headersRefList" :rows="rowsRefList" title="Profile Users" @onGoDetail="onGoDetail" />
     </section>
 </div>

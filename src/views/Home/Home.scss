@@ -1,6 +1,6 @@
 @import "../../assets/colors.scss";
 
-.btn-users, .btn-favorites{
+.btn-users, .btn-favorites, .btn-filters{
     background-color: $green;
     color: $white;
     padding: 15px;
@@ -13,3 +13,13 @@
         color: $green;
     }
 }
+
+.visible{
+    opacity: 1;
+    transition-duration: 1s;
+  
+  }
+.hidden{
+    opacity: 0;
+    transition-duration: 1s;
+  }

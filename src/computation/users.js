@@ -1,4 +1,5 @@
 import { DataProvider } from "@/data-providers/index.js";
+import store from "@/store/index.js";
 
 const fetchUsers = async () =>{
     let usersList = [];
@@ -11,6 +12,84 @@ const fetchUsers = async () =>{
     }
     return usersList;
 }
+
+export const fetchGenderMale = () =>{
+    const usersList = store.getters["GET_USERS"]
+    let newUsersList = [];
+    let newUsersObj = {};
+
+    if(usersList){
+        usersList.forEach(user => {
+            if(user.gender == 'male'){
+                newUsersObj = {
+                    gender: user.gender,
+                    name: user.name,
+                    email: user.email,
+                    nat: user.nat,
+                    date_birth: user.date_birth,
+                    date_register: user.date_register
+                }
+            }
+
+            newUsersList.push(newUsersObj);
+        });
+    }
+
+    return newUsersList;
+}
+
+export const fetchGenderFemale = () =>{
+    const usersList = store.getters["GET_USERS"]
+    let newUsersList = [];
+    let newUsersObj = {};
+
+    if(usersList){
+        usersList.forEach(user => {
+            if(user.gender == 'female'){
+                newUsersObj = {
+                    gender: user.gender,
+                    name: user.name,
+                    email: user.email,
+                    nat: user.nat,
+                    date_birth: user.date_birth,
+                    date_register: user.date_register
+                }
+            }
+
+            newUsersList.push(newUsersObj);
+        });
+    }
+
+    return newUsersList;
+}
+
+
+export const fetchNationality = ({nat}) =>{
+    const usersList = store.getters["GET_USERS"]
+    let newUsersList = [];
+    let newUsersObj = {};
+
+    if(usersList){
+        usersList.forEach(user => {
+            if(user.nat == nat){
+                newUsersObj = {
+                    gender: user.gender,
+                    name: user.name,
+                    email: user.email,
+                    nat: user.nat,
+                    date_birth: user.date_birth,
+                    date_register: user.date_register
+                }
+            }
+
+            newUsersList.push(newUsersObj);
+        });
+    }
+
+    return newUsersList;
+}
+
+
 
 export const getDataUsers = async() =>{
 
