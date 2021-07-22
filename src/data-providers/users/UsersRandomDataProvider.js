@@ -15,6 +15,17 @@ export const UsersRandomDataProvider = ({ type, params, baseAPIurl }) => {
                 throw new Error(`Error baseAPIurl are necessary`)
             }
             break;
+
+            case "GET_CSV":
+                if (baseAPIurl) {
+                    options = {
+                        method: 'GET',
+                        url: `${baseAPIurl}/?format=csv`
+                    };
+                } else {
+                    throw new Error(`Error baseAPIurl are necessary`)
+                }
+                break;
     }
 
     if (!!options) {
