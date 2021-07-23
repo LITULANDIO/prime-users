@@ -35,7 +35,6 @@ export default {
 
          const getExistRows = () =>{
             if(store.getters["GET_FAVORITES"] != []){
-                console.log('store', store)
                 rowsRefList.value = store.getters["GET_FAVORITES"] 
             }
         }
@@ -53,7 +52,6 @@ export default {
             }catch(error){
                 console.error(`Error not export csv ${error}`)
             }
-            console.log('request', request)
             return request;
         }
 

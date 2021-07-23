@@ -123,7 +123,6 @@ export const getDataUserDetail = async({id}) =>{
     if(usersList){
         usersList.results.forEach((user, index) => {
             if(index == id){
-                console.log(user)
                 newUsersObj = {
                     personal_data: { img: user.picture.large, name: user.name.first, email: user.email, phone: user.phone },
                     coordinates: { lat: parseInt(user.location.coordinates.latitude), long: parseInt(user.location.coordinates.longitude) },

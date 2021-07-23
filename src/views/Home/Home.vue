@@ -58,10 +58,6 @@ export default {
             getRows();
         }
 
-        const onGoFilters = () =>{
-            rowsRefList.value = fetchGenderMale()
-        }
-
         const onSelectedMale = (value) =>{
             genderRefStr.value = value;
             rowsRefList.value = fetchGenderMale()
@@ -73,7 +69,6 @@ export default {
         }
 
         const onShowFilters = () =>{
-            console.log('eiiiiiii')
             showRefFilters.value = !showRefFilters.value
         }
 
