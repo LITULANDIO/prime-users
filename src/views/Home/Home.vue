@@ -84,7 +84,6 @@ export default {
             onGoDetail,
             onShowUsers,
             onGoMyFavorites,
-            onGoFilters,
             onSelectedMale,
             onSelectedFemale,
             onShowFilters
